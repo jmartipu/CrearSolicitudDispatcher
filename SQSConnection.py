@@ -14,14 +14,16 @@ class SQSConnection:
     message = ''
     receipt_handle = ''
 
-    def __enter__(self, queue_url):
+    def __init__(self, queue_url):
+        self.queue_url = queue_url
+
+    def __enter__(self):
         try:
             self.session = boto3.Session(
                 aws_access_key_id=Settings.AWS_ACCESS_KEY_ID_SQS,
                 aws_secret_access_key=Settings.AWS_SECRET_ACCESS_KEY_SQS,
             )
             self.sqs = self.session.client('sqs', region_name=Settings.AWS_REGION_SQS)
-            self.queue_url = queue_url
 
         except ConnectionError:
             print("No se puede conectar a SQS")
