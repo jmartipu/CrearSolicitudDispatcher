@@ -88,22 +88,12 @@ class SQSConnection:
             response = self.sqs.send_message(
                 QueueUrl=self.queue_url,
                 DelaySeconds=10,
-                MessageAttributes={
-                    'Title': {
-                        'DataType': 'String',
-                        'StringValue': 'Titulo Prueba'
-                    },
-                    'Author': {
-                        'DataType': 'String',
-                        'StringValue': 'Prueba'
-                    }
-                },
                 MessageBody=str(data)
 
             )
-            if response is not None:
-                self.message = response['Messages'][0]
-                self.receipt_handle = self.message['ReceiptHandle']
+            # if response is not None:
+                # self.message = response['Messages'][0]
+                # self.receipt_handle = self.message['ReceiptHandle']
 
         except botocore.exceptions.ClientError as e:
             # If a client error is thrown, then check that it was a 404 error.
