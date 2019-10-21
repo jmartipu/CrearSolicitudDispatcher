@@ -28,9 +28,8 @@ def process():
             sqs_connection_in.receive()
             if sqs_connection_in.message is not '':
                 message_attributes = sqs_connection_in.message.get('MessageAttributes')
-                message_tipo = message_attributes.get('Tipo').get('StringValue')
-                message_body = sqs_connection_in.message.get('Body')
-                dispatch(message_body, message_tipo)
+                message_tipo = message_attributes.get('NombreHerramienta').get('StringValue')
+                dispatch(sqs_connection_in.message, message_tipo)
                 sqs_connection_in.delete()
                 
     except Exception as e:
