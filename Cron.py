@@ -12,6 +12,8 @@ def dispatch(msg, tipo):
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CYPRESS)
     elif tipo == 'ADB Monkey':
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_ADB)
+    elif tipo == 'Calabash':
+        sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CALABASH)
     else:
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CYPRESS)
 
