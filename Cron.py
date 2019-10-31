@@ -10,8 +10,8 @@ def dispatch(msg, tipo):
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CYPRESS)
     elif tipo == 'Puppeteer':
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CYPRESS)
-    elif tipo == 'Adb':
-        sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CYPRESS)
+    elif tipo == 'ADB Monkey':
+        sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_ADB)
     else:
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CYPRESS)
 
