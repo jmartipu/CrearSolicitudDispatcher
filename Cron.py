@@ -14,6 +14,10 @@ def dispatch(msg, tipo):
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_ADB)
     elif tipo == 'Calabash':
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CALABASH)
+    elif tipo == 'Mutode':
+        sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_MUTODE)
+    elif tipo == 'VRT':
+        sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_VRT)
     else:
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CYPRESS)
 
