@@ -1,3 +1,4 @@
+import logging
 from time import sleep
 import datetime
 import Settings
@@ -15,6 +16,7 @@ def dispatch(msg, tipo):
     elif tipo == 'Calabash':
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CALABASH)
     elif tipo == 'Mutode':
+        print('Mutode')
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_MUTODE)
     elif tipo == 'VRT':
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_VRT)

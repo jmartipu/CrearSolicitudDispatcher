@@ -85,11 +85,13 @@ class SQSConnection:
 
     def send(self, data):
         try:
+            print("inicia enviado")
             response = self.sqs.send_message(
                 QueueUrl=self.queue_url,
                 MessageAttributes=data.get('MessageAttributes'),
                 MessageBody=data.get('Body'),
             )
+            print("termina enviado")
 
         except botocore.exceptions.ClientError as e:
             # If a client error is thrown, then check that it was a 404 error.
