@@ -20,6 +20,8 @@ def dispatch(msg, tipo):
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_MUTODE)
     elif tipo == 'VRT':
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_VRT)
+    elif tipo == 'Mdroid':
+        sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_MDROIDPLUS)
     else:
         sqs_connection_out = SQSConnection(Settings.AWS_QUEUE_URL_OUT_CYPRESS)
 
